@@ -2,9 +2,17 @@
 
 A demo of this application can be found at https://recipe-z.herokuapp.com.
 
-Things you may want to cover:
+# About This App
 
-* Ruby version
+It allows users to find full recipes by searching using ingredients, dish names, etc. 
+The app uses the Food2Fork REST API to obtain recipes. 
+
+# Ruby Version
+
+It was developed using Ruby 2.4.0, with Ruby on Rails 5.0.1.
+
+
+Things you may want to cover:
 
 * System dependencies
 
