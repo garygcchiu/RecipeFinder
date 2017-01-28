@@ -6,9 +6,68 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
   </head>
 
   <body>
-    <%= yield %>
+    <% if notice || alert %>
+      <div class="alert alert-info" role="alert" >
+      <%= link_to notice, root_path %>
+      <%= link_to alert, root_path %>
+      </div>
+    <% end %>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Recipe-z</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><%= link_to "Home", root_path %> </li>
+          </ul>
+          <div class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav">
+              <% if !user_signed_in? %>
+                <li class="inactive"><%= link_to "Register", new_user_registration_path %> </li>
+                <li class="inactive"><%= link_to "Log In", new_user_session_path %></li>
+              <% else %>
+                <p class="navbar-text navbar-left">Signed in as <%= current_user.email %></p>
+                <li class="inactive"><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
+              <% end %>
+            </ul>
+
+            <div class="navbar-form navbar-right">
+              <%= form_tag(recipes_index_path, :method => "get", id: "input-group") do %>
+                <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Search for recipes...' %>
+                <%= submit_tag "Search", :name => nil, class: 'btn btn-default' %>
+              <% end %>
+            </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <%= yield %>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">Created by Gary Chiu, using Ruby on Rails. Recipes obtained using food2fork's API.</p>
+      </div>
+    </footer>
+
   </body>
 </html>

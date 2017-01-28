@@ -1,0 +1,11 @@
+<% if user_signed_in? %>
+  <h1>Welcome, <%= current_user.email %></h1>
+  <p> Here are all your recent recipe searches: </p>
+
+<% else %>
+  <div class="jumbotron">
+    <h1> Hello, Welcome to Recipe-z</h1>
+    <p> You can begin by entering any ingredient/recipe name into the search form above!</p>
+    <p> Please register/log-in to save your recipe searches! </p>
+  </div>
+<% end %>
