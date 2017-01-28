@@ -22,4 +22,4 @@ test:
 
 production:
   <<: *default
-  database: recipez_database_production
+  database: recipez_database_dev
