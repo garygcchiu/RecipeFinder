@@ -1,4 +1,4 @@
-# RecipeZ
+# Recipe-zy
 
 A demo of this application can be found at https://recipe-z.herokuapp.com.
 
