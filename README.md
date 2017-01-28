@@ -1,6 +1,6 @@
 # RecipeZ
 
-A demo of this application can be found on recipe-z.herokuapp.com.
+A demo of this application can be found at https://recipe-z.herokuapp.com.
 
 Things you may want to cover:
 
