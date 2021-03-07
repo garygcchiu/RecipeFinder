@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'httparty', '~> 0.13.7'
-gem 'devise', '~> 4.2'
+gem 'devise', '~> 4.7'
 gem 'pg'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
